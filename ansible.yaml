@@ -1,5 +1,4 @@
 - hosts: test
-  ignore_unreachable: yes
   tasks:
   - name: copy deployment file to kubernetes master 
     copy:
