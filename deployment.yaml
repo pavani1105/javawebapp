@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: javawebapp
-        image: pavaniyadav219/javawebapp:$BUILD_NUMBER
+        image: pavaniyadav219/javawebapp:$"BUILD_NUMBER"
         command: ["/bin/sh"]
         args: ["-c","sh /usr/local/tomcat/bin/startup.sh;while true; do echo hello; sleep 10;done"]
         ports:
