@@ -1,2 +1,2 @@
 [test]
-172.31.45.145 ansible_user=root ansible_ssh_pass=123456
+172.31.45.145 ansible_user=root
