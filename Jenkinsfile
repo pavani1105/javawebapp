@@ -1,4 +1,4 @@
-pipeline {
+ppipeline {
     agent any
      tools {
         // Install the Maven version configured as "M3" and add it to the path.
@@ -34,7 +34,7 @@ pipeline {
               stage('Image build'){
               steps{
                   script{
-                   sh 'docker build . -t  pavaniyadav219/javawebapp:$BUILD_NUMBER'
+                   sh 'docker build . -t  pavaniyadav219/javawebapp:$BUILD_NUMBER '
 		   withCredentials([string(credentialsId: 'docker', variable: 'dockerpassword')]) {
 				    
 				  sh 'docker login -u pavaniyadav219 -p $dockerpassword'
