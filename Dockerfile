@@ -1,9 +1,5 @@
-FROM centos:7
-RUN mkdir /opt/tomcat
-WORKDIR /opt/tomcat
-ADD https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.88/bin/apache-tomcat-8.5.88.tar.gz .
-RUN tar -xvzf apache*.tar.gz
-RUN mv apache-tomcat-8*/* /opt/tomcat/.
-WORKDIR /opt/tomcat/webapps
-COPY target/CounterWebApp.war /opt/tomcat/webapps
-ENTRYPOINT ["sh", "/opt/tomcat/bin/startup.sh"]
+FROM tomcat 
+WORKDIR webapps 
+COPY target/WebApp.war .
+RUN rm -rf ROOT && mv WebApp.war ROOT.war
+ENTRYPOINT ["sh", "/usr/local/tomcat/bin/startup.sh"]
