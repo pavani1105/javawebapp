@@ -3,8 +3,8 @@
   - name: copy deployment file to kubernetes master 
     copy:
       src: deployment.yaml
-      dest: /root/
+      dest: /home/jenkins
   - name: delete the previous of kubernetes objects 
-    command: kubectl delete -f /root/deployment.yaml
+    command: kubectl delete -f /home/jenkins/deployment.yaml
   - name: creating kubernetes objects
-    command: kubectl apply -f /root/deployment.yaml
+    command: kubectl apply -f /home/jenkins/deployment.yaml
