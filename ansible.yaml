@@ -6,4 +6,5 @@
       dest: /root/
   - name: delete the previous of kubernetes objects 
     command: kubectl delete -f /root/deployment.yaml
-  -
+  - name: creating kubernetes objects
+    command: kubectl apply -f /root/deployment.yaml
