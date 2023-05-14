@@ -7,4 +7,4 @@ RUN mv apache-tomcat-8*/* /opt/tomcat/.
 WORKDIR /opt/tomcat/webapps
 COPY target/CounterWebApp.war /opt/tomcat/webapps
 EXPOSE 8080
-CMD ["/opt/tomcat/bin/catalina.sh", "run"]
+CMD ["/opt/tomcat/bin/startup.sh", "run"]
