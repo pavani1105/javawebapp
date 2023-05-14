@@ -9,4 +9,3 @@ COPY target/CounterWebApp.war /opt/tomcat/webapps
 RUN rm -rf ROOT && mv WebApp.war ROOT.war
 EXPOSE 8080
 CMD ["/opt/tomcat/bin/catalina.sh", "run"]
-~
