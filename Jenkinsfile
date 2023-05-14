@@ -34,7 +34,7 @@ ppipeline {
               stage('Image build'){
               steps{
                   script{
-                   sh 'docker build . -t  pavaniyadav219/javawebapp:$BUILD_NUMBER '
+                   sh 'docker build . -t  pavaniyadav219/javawebapp:$BUILD_NUMBER'
 		   withCredentials([string(credentialsId: 'docker', variable: 'dockerpassword')]) {
 				    
 				  sh 'docker login -u pavaniyadav219 -p $dockerpassword'
@@ -53,6 +53,6 @@ ppipeline {
 				    ansiblePlaybook become: true, installation: 'ansible', inventory: 'hosts', playbook: 'ansible.yaml'
 				}
 			}
-		}
+		   }
       }
    }
