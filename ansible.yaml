@@ -8,3 +8,7 @@
     copy:
       src: /var/lib/jenkins/deployment.yaml
       dest: /home/jenkins/
+  - name: delete the previous of kubernetes objects 
+    command: kubectl delete -f /root/deployment.yaml
+  - name: Create a Deployment by reading the definition from a local file
+    command: kubectl apply -f /root/deployment.yaml   
