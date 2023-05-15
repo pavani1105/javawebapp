@@ -15,7 +15,7 @@ pipeline {
                 sh 'mvn clean install -f pom.xml'
             }
         }
-        stage('CodeQuality') {
+        stage('CodeQualitycheck') {
             steps{
                       script{
                       withSonarQubeEnv('SonarQube') { 
