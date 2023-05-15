@@ -1,2 +1,2 @@
 [test]
-172.31.45.145 ansible_user=jenkins ansible_become=true ansible_become_password=123456
+172.31.45.145 ansible_user=root
