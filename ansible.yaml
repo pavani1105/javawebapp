@@ -3,6 +3,6 @@
   - name: copy deployment file to kubernetes master
     copy:
       src: deployment.yaml
-      dest: /home/jenkins
+      dest: /home/ubuntu
   - name: creating kubernetes objects
-    command: sudo kubectl apply -f /home/jenkins/deployment.yaml
+    command: sudo kubectl apply -f /home/ubuntu/deployment.yaml
