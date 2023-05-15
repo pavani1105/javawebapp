@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: javawebapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: javawebapp
+  template:
+    metadata:
+      labels:
+        app: javawebapp
+    spec:
+      imagePullSecrets:
+        - name: regcred
+      containers:
+        - name: javawebapp
+          image: pavaniyadav219/javawebapp:$IMAGE_TAG
+          imagePullPolicy: Always
+          command: ["/bin/sh"]
+          args: ["-c","sh /usr/local/tomcat/bin/startup.sh;while true; do echo hello; sleep 10;done"]
+          ports:
+            - name: http
+              containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: javawebapp
+  labels:
+    app: javawebapp
+spec:
+  type: NodePort
+  ports:
+  - port: 8080
+    nodePort: 31888
+    protocol: TCP
+    name: http
+  selector:
+    app: javawebapp
