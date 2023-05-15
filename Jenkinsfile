@@ -34,6 +34,7 @@ pipeline {
               stage('Image build'){
               steps{
                   script{
+		   sh 'docker image prune -f'	  
                    sh 'docker build . -t  pavaniyadav219/javawebapp:$BUILD_NUMBER'
 		   withCredentials([string(credentialsId: 'docker', variable: 'dockerpassword')]) {
 				    
