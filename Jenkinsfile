@@ -45,15 +45,9 @@ pipeline {
                     }
                  }
                   stage('ansible playbook'){
-			         steps{
-			 	       script{
-				    sh '''final_tag=$(echo $BUILD_NUMBER | tr -d ' ')
-				     echo ${final_tag}test
-				     sed -i "s/BUILD_NUMBER/$final_tag/g"  /var/lib/jenkins/workspace/java-project/deployment.yaml
-				     '''
+			  steps{
 				    ansiblePlaybook become: true, installation: 'ansible', inventory: 'hosts', playbook: 'ansible.yaml'
 				}
-			}
 		   }
       }
    }
