@@ -1,6 +1,6 @@
-FROM tomcat 
+FROM tomcat:latest 
 WORKDIR webapps 
 COPY target/CounterWebApp.war .
 RUN rm -rf ROOT && mv CounterWebApp.war ROOT.war
 EXPOSE 8080
-ENTRYPOINT ["sh", "/usr/local/tomcat/bin/startup.sh"]
+CMD ["sh", "catalina.sh", "run"]
