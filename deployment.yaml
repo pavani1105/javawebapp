@@ -18,7 +18,7 @@ spec:
         args: ["-c","sh /usr/local/tomcat/bin/startup.sh;while true; do echo hello; sleep 10;done"]
         ports:
             - name: http
-              containerPort: 8082
+              containerPort: 8080
   replicas: 2
 ---
 apiVersion: v1
@@ -30,8 +30,8 @@ metadata:
 spec:
   type: NodePort
   ports:
-  - port: 8082
-    nodePort: 31884
+  - port: 8080
+    nodePort: 31888
     protocol: TCP
     name: http
   selector:
