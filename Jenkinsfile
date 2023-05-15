@@ -1,6 +1,9 @@
 pipeline {
     agent any
-     tools {
+	    environment{
+     Docker_tag = $BUILD_NUMBER  
+}
+    tools {
         // Install the Maven version configured as "M3" and add it to the path.
         maven "Maven3.8"
     }
@@ -45,9 +48,16 @@ pipeline {
                     }
                  }
                   stage('ansible playbook'){
-			  steps{
+			steps{
+			 	script{
+				    sh '''final_tag=$(echo $Docker_tag | tr -d ' ')
+				     echo ${final_tag}test
+				     sed -i "s/docker_tag/$final_tag/g"  deployment.yaml
+				     '''
 				    ansiblePlaybook become: true, installation: 'ansible', inventory: 'hosts', playbook: 'ansible.yaml'
 				}
-		   }
+			}
+		}
+
       }
    }
