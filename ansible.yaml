@@ -2,7 +2,7 @@
   tasks:
   - name: copy deployment file to kubernetes master
     copy:
-      src: deployment.yaml
-      dest: /root/
+      src: /var/lib/jenkins/workspace/java-project/deployment.yaml
+      dest: /home/jenkins
   - name: creating kubernetes objects
-    command: kubectl apply -f /root/deployment.yaml
+    command: kubectl apply -f /home/jenkins/deployment.yaml
