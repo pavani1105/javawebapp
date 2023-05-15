@@ -1,10 +1,8 @@
----
-- name: ansible playbook
-  hosts: test
-  become: yes
-  become_user: root 
+- hosts: test
   tasks:
-  - name: copy deployment file to kubernetes master 
+  - name: copy deployment file to kubernetes master
     copy:
-      src: /var/lib/jenkins/deployment.yaml
-      dest: /home/jenkins/  
+      src: deployment.yaml
+      dest: /root/
+  - name: creating kubernetes objects
+    command: kubectl apply -f /root/deployment.yaml
