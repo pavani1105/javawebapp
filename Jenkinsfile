@@ -1,8 +1,8 @@
 currentBuild.displayName = "Final_Demo # "+currentBuild.number
 pipeline {
     agent any
-	    environment{
-     Docker_tag = $BUILD_NUMBER  
+    environment{
+     Docker_tag = $"BUILD_NUMBER"  
 }
     tools {
         // Install the Maven version configured as "M3" and add it to the path.
