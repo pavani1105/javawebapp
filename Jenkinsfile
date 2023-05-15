@@ -49,7 +49,7 @@ pipeline {
 			 	       script{
 				    sh '''final_tag=$(echo $BUILD_NUMBER | tr -d ' ')
 				     echo ${final_tag}test
-				     sed -i "s/BUILD_NUMBER/$final_tag/g"  deployment.yaml
+				     sed -i "s/BUILD_NUMBER/$final_tag/g"  /var/lib/jenkins/workspace/java-project/deployment.yaml
 				     '''
 				    ansiblePlaybook become: true, installation: 'ansible', inventory: 'hosts', playbook: 'ansible.yaml'
 				}
