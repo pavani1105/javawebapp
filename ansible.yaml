@@ -6,7 +6,5 @@
     copy:
       src: deployment.yaml
       dest: /root
-  - name: deleting existing deplyment file
-    command: kubectl delete -f deployment.yaml 
   - name: creating kubernetes objects
     command: kubectl apply -f deployment.yaml
