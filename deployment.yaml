@@ -33,7 +33,7 @@ spec:
   type: NodePort
   ports:
   - port: 8080
-    nodePort: 31888
+    nodePort: 33000
     protocol: TCP
     name: http
   selector:
