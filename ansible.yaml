@@ -2,7 +2,7 @@
   become: true
   become_user: root
   tasks:
-  - name: copy deployment file to kubernetes master
+  - name: copy deployment file from ansible controller to kubernetes master
     copy:
       src: deployment.yaml
       dest: /root
