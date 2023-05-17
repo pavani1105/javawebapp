@@ -1,10 +1,1 @@
-- hosts: test
-  become: true
-  become_user: root
-  tasks:
-  - name: copy deployment file from ansible controller to kubernetes master
-    copy:
-      src: deployment.yaml
-      dest: /root
-  - name: creating kubernetes objects
-    command: kubectl apply -f deployment.yaml
+
