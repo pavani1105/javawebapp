@@ -1,4 +1,4 @@
-FROM tomcat:9.0.75
+FROM tomcat:9.0-jdk8-corretto
 WORKDIR webapps 
 COPY target/CounterWebApp.war .
 RUN rm -rf ROOT && mv CounterWebApp.war ROOT.war
