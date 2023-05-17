@@ -1,5 +1,6 @@
-FROM tomcat
-WORKDIR /usr/local/tomcat/webapps
-COPY /var/lib/jenkins/workspace/java-project/target/CounterWebApp.war ./
-RUN mv CounterWebApp.war ROOT.war
-ENTRYPOINT ["sh", "/usr/local/tomcat/bin/startup.sh"]
+FROM tomcat:9.0.75-jdk8-corretto-al2
+WORKDIR webapps 
+COPY target/CounterWebApp.war .
+RUN rm -rf ROOT && mv CounterWebApp.war ROOT.war
+EXPOSE 8080
+CMD ["catalina.sh", "run"]
