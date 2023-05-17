@@ -39,7 +39,7 @@ pipeline {
               steps{
                   script{
 		   sh 'docker image prune -a --force'	  
-                   sh 'docker build . -t  pavaniyadav219/javawebapp:$IMAGE_TAG'
+                   sh 'docker build -t  pavaniyadav219/javawebapp:$IMAGE_TAG .'
 		   withCredentials([string(credentialsId: 'docker', variable: 'dockerpassword')]) {
 				    
 				  sh 'docker login -u pavaniyadav219 -p $dockerpassword'
