@@ -17,8 +17,6 @@ spec:
       containers:
         - name: javawebapp
           image: pavaniyadav219/javawebapp:IMAGE_TAG
-          command: ["/bin/sh"]
-          args: ["-c","sh /usr/local/tomcat/bin/startup.sh;while true; do echo hello; sleep 10;done"]
           ports:
             - name: http
               containerPort: 8080
