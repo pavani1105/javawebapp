@@ -1,4 +1,4 @@
-FROM tomcat:7.0.56
+FROM tomcat:9.0
 WORKDIR webapps 
 COPY target/CounterWebApp.war .
 RUN rm -rf ROOT && mv CounterWebApp.war ROOT.war
